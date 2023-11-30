@@ -890,7 +890,7 @@ if(MSVC OR MINGW)
 endif()
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-  set(ZIG_RELEASE_ARG "")
+  set(ZIG_RELEASE_ARG -Dlog)
 elseif("${CMAKE_BUILD_TYPE}" STREQUAL "RelWithDebInfo")
   set(ZIG_RELEASE_ARG -Doptimize=ReleaseFast)
 else()
@@ -936,6 +936,7 @@ set(ZIG_BUILD_ARGS
   "-Dtarget=${ZIG_TARGET_TRIPLE}"
   "-Dcpu=${ZIG_TARGET_MCPU}"
   "-Dversion-string=${RESOLVED_ZIG_VERSION}"
+  "-Dlog"
 )
 
 add_custom_target(stage3 ALL
